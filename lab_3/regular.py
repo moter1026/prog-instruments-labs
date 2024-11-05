@@ -38,11 +38,11 @@ def check_csv(file_name: str) -> list[int]:
                     names = row
                     first = False
                     continue
-                err_list.append(0)
                 index_names = 0
                 for val in row:
                     if not match_check(str(val),str(consts.REGULAR_DICT[names[index_names]])):
-                        err_list[index_err] += 1
+                        err_list.append(index_err)
+                        break
                     index_names += 1
                 index_err += 1
         return err_list
